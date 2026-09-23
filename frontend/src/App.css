@@ -1,0 +1,441 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --green-900: #0d2e22;
+  --green-700: #146c4c;
+  --green-600: #1a7f5a;
+  --green-500: #22a06b;
+  --mint-100: #e8f5ef;
+  --mint-50: #f3faf7;
+  --white: #ffffff;
+  --ink: #16241e;
+  --ink-soft: #5d7268;
+  --line: #d9e8e1;
+  --danger: #b4231f;
+
+  --radius: 14px;
+  --ease: cubic-bezier(0.22, 0.68, 0.32, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--mint-50);
+  color: var(--ink);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    var(--mint-100) 0%,
+    var(--mint-50) 55%
+  );
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem 1.75rem;
+  box-shadow: 0 1px 2px rgba(13, 46, 34, 0.04),
+    0 12px 32px -12px rgba(13, 46, 34, 0.14);
+}
+
+/* ---- logo ---- */
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-mark {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--green-700);
+  user-select: none;
+}
+
+.logo-rule {
+  width: 34px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--green-500),
+    rgba(34, 160, 107, 0)
+  );
+}
+
+.logo-rule.left {
+  background: linear-gradient(
+    to left,
+    var(--green-500),
+    rgba(34, 160, 107, 0)
+  );
+}
+
+/* ---- header ---- */
+
+.card-head {
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+.card-head h1 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.35rem;
+  color: var(--green-900);
+}
+
+.card-head p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+/* ---- fields ---- */
+
+.field {
+  margin-bottom: 0.25rem;
+}
+
+label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-group input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+input,
+select {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  width: 100%;
+  transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease),
+    background-color 160ms var(--ease);
+}
+
+input:hover,
+select:hover {
+  border-color: #bcd8cc;
+}
+
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(34, 160, 107, 0.16);
+}
+
+input[type="number"] {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+/* strip the native number spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.select-wrap {
+  position: relative;
+  flex: 0 0 7.25rem;
+}
+
+.select-wrap.full {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.select-wrap select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.chevron {
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--ink-soft);
+  pointer-events: none;
+  transition: color 160ms var(--ease);
+}
+
+.select-wrap:hover .chevron {
+  color: var(--green-600);
+}
+
+/* ---- swap rail ---- */
+
+.swap-rail {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.swap-btn {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--green-600);
+  cursor: pointer;
+  transition: background-color 180ms var(--ease), border-color 180ms var(--ease),
+    color 180ms var(--ease), transform 420ms var(--ease);
+  transform: rotate(calc(var(--turns, 0) * 180deg));
+}
+
+.swap-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.swap-btn:hover {
+  background: var(--mint-100);
+  border-color: #bcd8cc;
+  color: var(--green-700);
+}
+
+.swap-btn:active {
+  background: #dcefe6;
+}
+
+.swap-btn:focus-visible {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(34, 160, 107, 0.16);
+}
+
+/* ---- submit ---- */
+
+.submit-btn {
+  width: 100%;
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 0.975rem;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--green-700);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 180ms var(--ease), transform 120ms var(--ease),
+    box-shadow 180ms var(--ease);
+}
+
+.submit-btn svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--green-600);
+  box-shadow: 0 6px 16px -6px rgba(20, 108, 76, 0.5);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.submit-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34, 160, 107, 0.3);
+}
+
+.submit-btn:disabled {
+  background: var(--green-600);
+  opacity: 0.75;
+  cursor: progress;
+}
+
+.spinner {
+  animation: spin 780ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- result ---- */
+
+.result {
+  margin-top: 1.5rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--line);
+  animation: rise 380ms var(--ease) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.result-from {
+  margin: 0 0 0.3rem;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.result-figure {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0 0 0.55rem;
+}
+
+.figure {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--green-900);
+  word-break: break-all;
+}
+
+.code {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--green-600);
+}
+
+.result-meta {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- error ---- */
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  background: #fdf1f0;
+  color: var(--danger);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  animation: rise 300ms var(--ease) both;
+}
+
+.error svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+/* ---- responsive & motion ---- */
+
+@media (max-width: 380px) {
+  .card {
+    padding: 1.5rem 1.25rem;
+  }
+  .logo-mark {
+    font-size: 2.2rem;
+  }
+  .figure {
+    font-size: 2.1rem;
+  }
+  .input-group {
+    flex-direction: column;
+  }
+  .select-wrap {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .swap-btn {
+    transform: none;
+  }
+}
